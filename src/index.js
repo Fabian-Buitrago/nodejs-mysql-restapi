@@ -6,6 +6,8 @@ const app = express();
 
 app.set("port", 3000);
 
+app.use(express.json());
+
 app.use(employeesRoutes);
 app.use(indexRoutes);
 
