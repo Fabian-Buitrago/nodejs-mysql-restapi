@@ -1,21 +1,5 @@
-import express from "express";
-import employeesRoutes from "./routes/employees.routes.js";
-import indexRoutes from "./routes/index.routes.js";
+import { PORT } from "./config.js";
+import app from "./app.js";
 
-const app = express();
-
-app.set("port", 3000);
-
-app.use(express.json());
-
-app.use("/api", employeesRoutes);
-app.use(indexRoutes);
-
-app.use((req, res, next) => {
-  res.status(500).json({
-    message: "endpoint not found",
-  });
-});
-
-app.listen(app.get("port"));
-console.log(`Server running on port ${app.get("port")}`);
+app.listen(PORT);
+console.log(`Server running on port ${PORT}`);
